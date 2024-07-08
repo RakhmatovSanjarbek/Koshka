@@ -15,6 +15,7 @@
         app:menu="@menu/profile_toolbar_menu"
         android:background="@color/white"/>
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_image"
         android:layout_width="100dp"
