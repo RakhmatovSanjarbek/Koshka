@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/m_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="rakhmatov_sanjarbek"
+        app:titleTextColor="@color/black"
+        app:menu="@menu/profile_toolbar_menu"
+        android:background="@color/white"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="50dp"
+        android:layout_below="@id/m_toolbar"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profile_image"/>
+    </androidx.cardview.widget.CardView>
+
     <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/user_name"
+        android:layout_below="@id/card_image"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_below="@id/tv_user_name"
+        android:backgroundTint="@android:color/transparent"
+        app:strokeWidth="1dp"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/black"
+        android:text="@string/edit_profile"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:layout_below="@id/btn_edit_profile">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/picture_icon"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/music_icon"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/save_icon"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/category"
+        android:layout_marginTop="2dp"
+        android:background="@color/black"/>
+
+    <View
+        android:id="@+id/category_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/line"
+        android:background="@android:color/holo_blue_dark"/>
+    <View
+        android:id="@+id/category_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/line"
+        android:background="@android:color/holo_green_dark"/>
+    <View
+        android:id="@+id/category_save"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/line"
+        android:background="@android:color/holo_orange_dark"/>
+</RelativeLayout>
