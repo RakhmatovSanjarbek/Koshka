@@ -35,4 +35,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+
+
+    companion object{
+
+        const val KEY="key_user"
+    }
 }
