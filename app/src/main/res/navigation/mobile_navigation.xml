@@ -26,10 +26,25 @@
         android:id="@+id/navigation_chat"
         android:name="cat_devs.uz.koshka.view.chat.ChatScreen"
         android:label="@string/chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_navigation_chat_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="cat_devs.uz.koshka.view.profile.ProfileScreen"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/chatsFragment"
+        android:name="cat_devs.uz.koshka.view.chat.ChatsFragment"
+        android:label="fragment_chats"
+        tools:layout="@layout/fragment_chats" >
+        <action
+            android:id="@+id/action_chatsFragment_to_navigation_chat"
+            app:destination="@id/navigation_chat"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/navigation_chat"/>
+    </fragment>
 </navigation>
