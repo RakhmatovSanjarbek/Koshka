@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.profile.ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/m_toolbar"
@@ -67,16 +66,19 @@
         android:orientation="horizontal"
         android:layout_below="@id/btn_edit_profile">
         <ImageView
+            android:id="@+id/btn_picture_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/picture_icon"/>
         <ImageView
+            android:id="@+id/btn_music_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/music_icon"/>
         <ImageView
+            android:id="@+id/btn_save_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -90,25 +92,31 @@
         android:layout_marginTop="2dp"
         android:background="@color/black"/>
 
-    <View
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_picture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="4dp"
         android:layout_below="@id/line"
-        android:background="@android:color/holo_blue_dark"/>
-    <View
+        android:layout_marginTop="4dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        tools:listitem="@layout/item_profile_screen_picture_and_save"/>
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_music"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"
         android:layout_below="@id/line"
-        android:background="@android:color/holo_green_dark"/>
-    <View
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_profile_screen_music"
+        android:visibility="gone"/>
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_save"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="4dp"
         android:layout_below="@id/line"
-        android:background="@android:color/holo_orange_dark"/>
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
+        android:visibility="gone"/>
 </RelativeLayout>
