@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679881998872",
+    "project_id": "koshka-d2544",
+    "storage_bucket": "koshka-d2544.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679881998872:android:6684dc1e4fa3996b01396d",
+        "android_client_info": {
+          "package_name": "cat_devs.uz.koshka"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApzgJypsJxRIMEFtj1t-f9h_u1n2h9gRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
