@@ -11,5 +11,4 @@ class HomeScreen :CommonFragment<FragmentHomeBinding>(){
     override fun setup() {
         // it is on created view
     }
-
 }

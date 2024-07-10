@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+
+    // dagger hilt
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -36,6 +40,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    // dagger hilt
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -51,5 +59,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("com.airbnb.android:lottie:3.4.0")
 }
