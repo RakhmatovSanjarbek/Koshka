@@ -32,4 +32,5 @@ abstract class CommonFragment<T : ViewBinding> : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

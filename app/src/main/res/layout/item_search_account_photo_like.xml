@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/search_tool_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_profile_user_account_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:padding="2dp"
+                android:src="@drawable/profile_user_account_icon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6.7"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_account_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="elyor_xalilov"
+                android:textColor="@color/white"
+                android:textSize="16dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_online_nonOnline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Reklama"
+                android:textColor="@color/white"
+                android:textSize="10dp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center_vertical|end">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:padding="2dp"
+                android:src="@drawable/more_horiz"></ImageView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_one_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/download" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginBottom="0.4dp"
+        android:background="@color/search_tool_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_search_like"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:padding="2dp"
+            android:src="@drawable/search_heart_like_love_icon" />
+
+        <ImageView
+            android:id="@+id/iv_search_comment"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="18dp"
+            android:padding="2dp"
+            android:rotationY="-180"
+            android:src="@drawable/search_comment_icon" />
+
+        <ImageView
+            android:id="@+id/iv_search_telegram"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="18dp"
+            android:padding="2dp"
+            android:src="@drawable/search_telegram_icon" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:gravity="end|center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_save_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:padding="2dp"
+                android:src="@drawable/arrow_save_icon" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
