@@ -13,9 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="cat_devs.uz.koshka.view.search.SearchScreen"
+        android:name="cat_devs.uz.koshka.view.search.searchViewScreen.SearchScreen"
         android:label="@string/search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_searchScrollScreen"
+            app:destination="@id/searchScrollScreen" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add_content"
@@ -37,14 +41,4 @@
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/chatsFragment"
-        android:name="cat_devs.uz.koshka.view.chat.ChatsFragment"
-        android:label="fragment_chats"
-        tools:layout="@layout/fragment_chats" >
-        <action
-            android:id="@+id/action_chatsFragment_to_navigation_chat"
-            app:destination="@id/navigation_chat"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/navigation_chat"/>
-    </fragment>
 </navigation>
