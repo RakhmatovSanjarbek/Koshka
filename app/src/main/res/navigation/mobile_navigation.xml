@@ -30,15 +30,15 @@
         android:id="@+id/navigation_chat"
         android:name="cat_devs.uz.koshka.view.chat.ChatScreen"
         android:label="@string/chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_navigation_chat_to_chatsFragment"
+            app:destination="@id/chatsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="cat_devs.uz.koshka.view.profile.ProfileScreen"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/searchScrollScreen"
-        android:name="cat_devs.uz.koshka.view.search.searchViewScreen.SearchScrollScreen"
-        android:label="SearchScrollScreen"
-        tools:layout="@layout/search_scroll_rolic"/>
 </navigation>
