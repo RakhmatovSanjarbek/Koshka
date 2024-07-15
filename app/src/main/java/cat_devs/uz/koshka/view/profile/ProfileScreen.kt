@@ -1,77 +1,50 @@
 package cat_devs.uz.koshka.view.profile
 
-import android.media.MediaPlayer
-import android.view.View
+import cat_devs.uz.koshka.R
 import cat_devs.uz.koshka.databinding.FragmentProfileBinding
 import cat_devs.uz.koshka.view.CommonFragment
-import cat_devs.uz.koshka.viewModel.profileScreenViewModel.MyList
-import cat_devs.uz.koshka.viewModel.profileScreenViewModel.adapter.MusicAdapter
-import cat_devs.uz.koshka.viewModel.profileScreenViewModel.adapter.PictureAdapter
+import cat_devs.uz.koshka.viewModel.profileScreenViewModel.pager_adapter.ProfileScreenPagerAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 
 class ProfileScreen : CommonFragment<FragmentProfileBinding>() {
 
-    private lateinit var mediaPlayer: MediaPlayer
-    private val pictureAdapter by lazy { PictureAdapter() }
-    private val pictureAdapter1 by lazy { PictureAdapter() }
-    private val musicAdapter by lazy { MusicAdapter(::isPlay) }
-    private fun isPlay(isPlaying: Boolean, musicResourceId: Int) {
-        if (isPlaying) {
-            playMusic(musicResourceId)
-        } else {
-            pauseMusic()
-        }
-    }
+    private lateinit var pagerAdapter: ProfileScreenPagerAdapter
 
     override fun getMyBinding(): FragmentProfileBinding {
         return FragmentProfileBinding.inflate(layoutInflater)
     }
 
-    override fun setup() = with(binding) {
-
-        categoryPicture.adapter = pictureAdapter
-        pictureAdapter.submitList(MyList.pictureList)
-
-        categoryMusic.adapter = musicAdapter
-        musicAdapter.submitList(MyList.musicList)
-
-        categorySave.adapter = pictureAdapter1
-        pictureAdapter1.submitList(MyList.saveList)
-
-        btnPictureCategory.setOnClickListener {
-            categoryPicture.visibility = View.VISIBLE
-            categoryMusic.visibility = View.GONE
-            categorySave.visibility = View.GONE
-        }
-        btnMusicCategory.setOnClickListener {
-            categoryPicture.visibility = View.GONE
-            categoryMusic.visibility = View.VISIBLE
-            categorySave.visibility = View.GONE
-        }
-        btnSaveCategory.setOnClickListener {
-            categoryPicture.visibility = View.GONE
-            categoryMusic.visibility = View.GONE
-            categorySave.visibility = View.VISIBLE
-        }
+    override fun setup(): Unit = with(binding) {
+        setUpTabLayout()
     }
 
-    private fun playMusic(musicResourceId: Int) {
-        if (::mediaPlayer.isInitialized) {
-            mediaPlayer.release()
-        }
-        mediaPlayer = MediaPlayer.create(requireContext(), musicResourceId)
-        mediaPlayer.start()
-    }
+    private fun setUpTabLayout() = with(binding) {
+        val tab = ppTabLayout
+        val viewPager = ppViewPager
+        pagerAdapter = ProfileScreenPagerAdapter(requireActivity())
+        viewPager.adapter = pagerAdapter
+        TabLayoutMediator(tab, viewPager) { tabLayout, position ->
+            when (position) {
+                0 -> {
+                    tabLayout.setIcon(R.drawable.picture_icon)
+                    tabLayout.setContentDescription("Pictures")
+                }
 
-    private fun pauseMusic() {
-        if (::mediaPlayer.isInitialized && mediaPlayer.isPlaying) {
-            mediaPlayer.pause()
-        }
-    }
+                1 -> {
+                    tabLayout.setIcon(R.drawable.music_icon)
+                    tabLayout.setContentDescription("Musics")
+                }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (::mediaPlayer.isInitialized) {
-            mediaPlayer.release()
-        }
+                2 -> {
+                    tabLayout.setIcon(R.drawable.save_icon)
+                    tabLayout.setContentDescription("Saved")
+                }
+
+                3 -> {
+                    tabLayout.setIcon(R.drawable.ic_save_music)
+                    tabLayout.setContentDescription("Saved Musics")
+                }
+            }
+        }.attach()
     }
 }
